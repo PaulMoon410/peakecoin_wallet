@@ -18,14 +18,14 @@ jobs:
         distribution: 'temurin'
         java-version: 11
 
-    - name: Grant Gradle permissions
+    - name: Make gradlew executable
       run: chmod +x ./gradlew
 
     - name: Build Debug APK
       run: ./gradlew assembleDebug
 
-    - name: Upload APK Artifact
-      uses: actions/upload-artifact@v3.1.3
+    - name: Upload APK
+      uses: actions/upload-artifact@f5f553e2dd6e6de87b7054f5d1e8e07f4a065cb2  # this is a pinned working SHA
       with:
         name: app-debug
         path: app/build/outputs/apk/debug/app-debug.apk
